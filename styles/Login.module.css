@@ -1,0 +1,63 @@
+.main {
+    height: 100vh;
+    width: 100vw;
+    background-color: #151D27;
+    display: flex;
+}
+
+.leftSide{
+    height: 100vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../public/twitterImage.png');
+}
+
+.rightSide {
+    height: 100vh;
+    width: 60%;
+}
+
+.loginZone{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 50px;
+    align-items: left;
+    width: 50%;
+}
+
+.logo{
+    height: auto;
+    width: 50px;
+}
+
+.title1 {
+    color: white;
+    font-size: 50px;
+}
+
+.title2{
+    color: white;
+}
+
+.p{
+    color: white;
+}
+  
+.signUpButton{
+    color: white;
+    background-color: #3690ED;
+    border-radius: 10px;
+    height: 40px;
+    width: 200px;
+}
+
+.signInButton{
+    color: #3690ED;
+    background-color: #151D27;
+    border-radius: 10px;
+    border: solid 1px white;
+    height: 40px;
+    width: 200px;
+}
