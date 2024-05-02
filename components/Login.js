@@ -1,39 +1,16 @@
 import styles from '../styles/Home.module.css';
-import { useDispatch } from 'react-redux';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
 function Login() {
-    const dispatch = useDispatch();
 
-    const [signUpFirstname, setSignUpFirstname] = useState('');
-    const [signUpUsername, setSignUpUsername] = useState('');
-	const [signUpPassword, setSignUpPassword] = useState('');
-	const [signInUsername, setSignInUsername] = useState('');
-	const [signInPassword, setSignInPassword] = useState('');
-
-    const handleSignUpClick = () => {
-        fetch('http://localhost:3000/signup')//?----route ok ???
+    const Modal = ({ isOpen, onClose }) => {
+        if (!isOpen) {
+          return null; // Don't render anything if the modal is closed
+        }
+      
+        return 
     }
-
-    const handleSignUpClick () => {
-        fetch('http://localhost:3000/signin', {//?----route ok ???
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                firstname: signUpFirstname, 
-                username: signUpUsername, 
-                password: signUpPassword 
-            }),
-        }).then(Response => Response.json())
-            .then(data => {
-                dispatch(/*reducer*/); // --- à compléter
-            })
-    }
-
-
-
-
 
   return (
     <div>
@@ -41,9 +18,11 @@ function Login() {
         <h1 className={styles.title}>See what's</h1>
         <h1 className={styles.title}>happening</h1>
         <h2>Join Hackatweet today.</h2>
-        <button id="Sign up" onClick={() => handleSignUpClick()}>Sign up</button>
+        <button >Sign up</button>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}><SignIn/></Modal>
         <p>Already have an account ?</p>
-        <button id="Sign in" onClick={() => handleSignInClick()}>Sign in</button>
+        <button >Sign in</button>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}><SignUp/></Modal>
       </main>
     </div>
   );
