@@ -1,8 +1,23 @@
 import styles from "../styles/Home.module.css";
-
 import Tweet from "./Tweet";
+import { logout } from "../reducers/user";
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from "next/router";
 
 function Home() {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+
+  const user = useSelector((state) => state.user.value)
+  
+  const handleLogout = () => {
+    dispatch(logout());
+    router.push('/')
+  };
+ 
+
+
   return (
     <div className={styles.containerHome}>
       <div className={styles.personnal}>
@@ -19,11 +34,11 @@ function Home() {
               alt="avatar"
             />
             <div className={styles.name}>
-              <span>Name</span>
-              <span>@Name</span>
+              <span>{user.firstname}</span>
+              <span>@.{user.username}</span> 
             </div>
           </div>
-          <button className={styles.btnLogout}>Logout</button>
+          <button className={styles.btnLogout} onClick={handleLogout}>Logout</button>
         </div>
       </div>
       <div className={styles.addTweet}>
