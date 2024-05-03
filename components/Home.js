@@ -1,6 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+
 import Tweet from "./Tweet";
 
 function Home() {
@@ -41,7 +40,9 @@ function Home() {
           <button className={styles.btnTweet}>Tweet</button>
         </div>
       </div>
-      <div className={styles.msgContainer}>{Tweet}</div>
+      <div className={styles.msgContainer}>
+        <Tweet />
+      </div>
       <div className={styles.trend}>
         <h2 className={styles.title}>Trends</h2>
       </div>

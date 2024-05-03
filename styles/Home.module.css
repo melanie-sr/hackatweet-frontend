@@ -129,21 +129,6 @@
   grid-column: 3/10;
 }
 
-.row {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between;
-  align-items: center; */
-  border-bottom: 1px solid #b6b6b6;
-  align-items: flex-start;
-
-  padding: 15px;
-}
-
-.namePublication {
-  display: flex;
-}
-
 .trend {
   grid-row: 1/13;
   grid-column: 10/13;
