@@ -30,43 +30,20 @@ function Login() {
     <div>
       <main className={styles.main}>
         <div className={styles.leftSide}>
-          <img
-            className={styles.logo1}
-            src="Logo-twitter-blanc-png-800x800.png"
-            alt="Logo"
-          />
+          <img className={styles.logo1} src="Logo-twitter-blanc-png-800x800.png" alt="Logo" />
         </div>
         <div className={styles.rightSide}>
           <div className={styles.loginZone}>
-            <img
-              className={styles.logo2}
-              src="Logo-twitter-blanc-png-800x800.png"
-              alt="Logo"
-            />
-            <h1 className={styles.title1}>
-              See what's <br />
-              happening
-            </h1>
+            <img className={styles.logo2} src="Logo-twitter-blanc-png-800x800.png" alt="Logo"/>
+            <h1 className={styles.title1}>See what's <br/>happening</h1>
             <h2 className={styles.title2}>Join Hackatweet today.</h2>
-            <button className={styles.signUpButton} onClick={handleOpenSignUp}>
-              Sign up
-            </button>
-            <Modal
-              className={styles.modal}
-              isOpen={signUpOpen}
-              onRequestClose={handleCloseSignUp}
-            >
+            <button className={styles.signUpButton} onClick={handleOpenSignUp}>Sign up</button>
+            <Modal className={styles.modal} isOpen={signUpOpen} onRequestClose={handleCloseSignUp}>
               <SignUp />
             </Modal>
             <p className={styles.p}>Already have an account ?</p>
-            <button className={styles.signInButton} onClick={handleOpenSignIn}>
-              Sign in
-            </button>
-            <Modal
-              className={styles.modal}
-              isOpen={signInOpen}
-              onRequestClose={handleCloseSignIn}
-            >
+            <button className={styles.signInButton} onClick={handleOpenSignIn}>Sign in</button>
+            <Modal className={styles.modal} isOpen={signInOpen} onRequestClose={handleCloseSignIn}>
               <SignIn />
             </Modal>
           </div>

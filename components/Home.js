@@ -10,6 +10,7 @@ function Home() {
 
 
   const user = useSelector((state) => state.user.value)
+  console.log('user is', user);
   
   const handleLogout = () => {
     dispatch(logout());
@@ -21,11 +22,7 @@ function Home() {
   return (
     <div className={styles.containerHome}>
       <div className={styles.personnal}>
-        <img
-          className={styles.logoTwitter}
-          src="rettiwt.png"
-          alt="Logo twitter"
-        />
+        <img className={styles.logoTwitter} src="rettiwt.png" alt="Logo twitter"/>
         <div className={styles.containerIdentity}>
           <div className={styles.identity}>
             <img
@@ -34,8 +31,8 @@ function Home() {
               alt="avatar"
             />
             <div className={styles.name}>
-              <span>{user.firstname}</span>
-              <span>@.{user.username}</span> 
+              <span className={styles.firstname}>{user.firstname}</span>
+              <span className={styles.username}>@.{user.username}</span> 
             </div>
           </div>
           <button className={styles.btnLogout} onClick={handleLogout}>Logout</button>

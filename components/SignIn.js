@@ -11,7 +11,6 @@ function SignIn () {
     const dispatch = useDispatch();
     const router = useRouter();
 
-    const [signInFirstname, setSignInFirstname] = useState('');
     const [signInUsername, setSignInUsername] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
 
@@ -20,12 +19,11 @@ function SignIn () {
             fetch('http://localhost:3000/users/signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({firstname: signInFirstname, username: signInUsername, password: signInPassword }),
+                body: JSON.stringify({ username: signInUsername, password: signInPassword }),
             }).then(response => response.json())
             .then(data => {
                 if (data.result) {
-                    dispatch(login({ firstname: signInFirstname, username: signInUsername, token: data.token }));
-                    setSignInFirstname('');
+                    dispatch(login({ firstname: data.firstname, username: signInUsername, token: data.token }));
                     setSignInUsername('');
                     setSignInPassword('');
                     router.push('/home')
@@ -33,6 +31,7 @@ function SignIn () {
             })
 
     };
+
 
 
     return (
