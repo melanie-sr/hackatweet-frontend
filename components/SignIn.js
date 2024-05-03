@@ -1,31 +1,36 @@
+import styles from '../styles/Login.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { login } from '../reducers/user';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import styles from '../styles/Login.module.css';
+import { useRouter } from 'next/router';
 
 
 function SignIn () {
     const dispatch = useDispatch();
+    const router = useRouter();
 
+    const [signInFirstname, setSignInFirstname] = useState('');
     const [signInUsername, setSignInUsername] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
 
 
     const handleSignIn = () => {
-        fetch('http://localhost:3000/users/signin', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username: signInUsername, password: signInPassword }),
-        }).then(response => response.json())
-        .then(data => {
-            if (data.result) {
-                dispatch(login({ username: signInUsername, token: data.token }));
-                setSignInUsername('');
-                setSignInPassword('');
-            }
-        }).then(<link rel="stylesheet" href="/home" />) //? -- à tester
+            fetch('http://localhost:3000/users/signin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({firstname: signInFirstname, username: signInUsername, password: signInPassword }),
+            }).then(response => response.json())
+            .then(data => {
+                if (data.result) {
+                    dispatch(login({ firstname: signInFirstname, username: signInUsername, token: data.token }));
+                    setSignInFirstname('');
+                    setSignInUsername('');
+                    setSignInPassword('');
+                    router.push('/home')
+                }
+            })
 
     };
 

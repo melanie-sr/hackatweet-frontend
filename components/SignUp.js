@@ -1,33 +1,37 @@
+import styles from '../styles/Login.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import styles from '../styles/Login.module.css';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { login } from '../reducers/user';
+import { useRouter } from 'next/router';
 
 
 function SignUp () {
  const dispatch = useDispatch();
+  const router = useRouter();
 
     const [signUpFirstname, setSignUpFirstname] = useState('');
     const [signUpUsername, setSignUpUsername] = useState('');
     const [signUpPassword, setSignUpPassword] = useState('');
 
 
-    fetch('http://localhost:3000/users/signup', {
-
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstname: signUpFirstname, username: signUpUsername, password: signUpPassword }),
-    }).then(res =>res.json())
-    .then(data => {
-        if (data.result) {
-            dispatch(login({ username: signUpUsername, token: data.token }));
-            setSignUpFirstname('');
-            setSignUpUsername('');
-            setSignUpPassword('');
-        }
-    })
+    const handleSignUp = () => {
+        fetch('http://localhost:3000/users/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ firstname: signUpFirstname, username: signUpUsername, password: signUpPassword }),
+        }).then(res =>res.json())
+        .then(data => {
+            if (data.result) {
+                dispatch(login({ username: signUpUsername, token: data.token }));
+                setSignUpFirstname('');
+                setSignUpUsername('');
+                setSignUpPassword('');
+                router.push('/home')
+            }
+        })
+    };
 
     return (
         <div>
@@ -41,7 +45,7 @@ function SignUp () {
                     <input className={styles.input} onChange={(e) =>setSignUpFirstname(e.target.value)} value={signUpFirstname} type="text" placeholder="Firstname" id="signUpFirstname"/>
                     <input className={styles.input} onChange={(e) =>setSignUpUsername(e.target.value)} value={signUpUsername} type="text" placeholder="Username" id="signUpUsername"/>
                     <input className={styles.input} onChange={(e) =>setSignUpPassword(e.target.value)} value={signUpPassword} type="password" placeholder="Password" id="signUpPassword"/>
-                    <button className={styles.button} id="Sign up">Sign up</button>
+                    <button className={styles.button} id="Sign up" onClick={() => handleSignUp()}>Sign up</button>
                 </div>
             </div>
         </div>
