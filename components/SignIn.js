@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { login } from '../reducers/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import styles from '../styles/Login.module.css';
+
 
 function SignIn () {
     const dispatch = useDispatch();
@@ -23,16 +25,25 @@ function SignIn () {
                 setSignInUsername('');
                 setSignInPassword('');
             }
-        })
+        }).then(<link rel="stylesheet" href="/home" />) //? -- à tester
+
     };
 
 
     return (
         <div>
-            <FontAwesomeIcon icon={faXmark} />
-            <input onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} type="text" placeholder="Username" id="signInUsername"/>
-            <input onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} type="password" placeholder="Password" id="signInPassword"/>
-            <button id="Sign in" onClick={() => handleSignIn()}>Sign in</button>
+            <div className={styles.faXmark}>
+                <FontAwesomeIcon icon={faXmark} />
+            </div>
+            <div className={styles.modalsStyle}>
+                <img className={styles.logo2} src="Logo-twitter-blanc-png-800x800.png" alt="Logo" />
+                <h2>Connect to Hackatweet</h2>
+                <div className={styles.inputs}>
+                    <input className={styles.input} onChange={(e) => setSignInUsername(e.target.value)} value={signInUsername} type="text" placeholder="Username" id="signInUsername"/>
+                    <input className={styles.input} onChange={(e) => setSignInPassword(e.target.value)} value={signInPassword} type="password" placeholder="Password" id="signInPassword"/>
+                    <button className={styles.button} id="Sign in" onClick={() => handleSignIn()}>Sign in</button>
+                </div>
+            </div>
         </div>
     )
 }

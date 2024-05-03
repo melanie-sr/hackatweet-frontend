@@ -10,6 +10,8 @@
     width: 40%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-image: url('../public/twitterImage.png');
 }
 
@@ -27,37 +29,93 @@
     width: 50%;
 }
 
-.logo{
+.logo1{
+    height: auto;
+    width: 400px;
+}
+
+.logo2{
     height: auto;
     width: 50px;
 }
 
 .title1 {
     color: white;
-    font-size: 50px;
+    font-size: 70px;
 }
 
 .title2{
     color: white;
+    font-size: 30px;
 }
 
 .p{
     color: white;
+    font-weight: bold;
 }
   
 .signUpButton{
     color: white;
     background-color: #3690ED;
-    border-radius: 10px;
+    border-radius: 40px;
     height: 40px;
     width: 200px;
+    border: none;
+    font-weight: bold;
 }
 
 .signInButton{
     color: #3690ED;
     background-color: #151D27;
-    border-radius: 10px;
-    border: solid 1px white;
+    border-radius: 40px;
+    border: solid 1px #636D79;
     height: 40px;
     width: 200px;
+    font-weight: bold;
+}
+
+.modal{
+    border-radius: 10px;
+    background-color: #151D27;
+    height: 55%;
+    width: 35%;
+    margin-left: 32.5%;
+    margin-top: 5%;
+}
+
+.faXmark{
+    display: flex;
+    justify-content: right;
+    padding: 20px;
+    color: white;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.input{
+    background-color: #151D27;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px #636D79;
+}
+
+.button{
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 40px;
+    border: none;
+    font-weight: bold;
+}
+
+.modalsStyle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }
