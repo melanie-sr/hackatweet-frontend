@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Tweet from "./Tweet";
 import { logout } from "../reducers/user";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,19 +7,52 @@ import { useRouter } from "next/router";
 
 function Home() {
   const [newTweet, setNewTweet] = useState("");
+  const [tweetData, setTweetData] = useState([]);
+  const [refresh, setRefresh] = useState(false);
+
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user.value);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    router.push("/");
+  };
 
   const handleTweet = () => {
     fetch("http://localhost:3000/tweet/newTweet", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: newTweet }),
+      body: JSON.stringify({ token: user.token, message: newTweet }),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        console.log("coucou", data);
         setNewTweet("");
+        setRefresh(!refresh);
       });
   };
+
+  useEffect(() => {
+    fetch("http://localhost:3000/tweet/getTweets")
+      .then((response) => response.json())
+      .then((data) => {
+        setTweetData(data.tweet);
+      });
+  }, [refresh]);
+
+  const tweets = tweetData.map((tweet, i) => {
+    console.log("tweet is", tweet);
+    return (
+      <Tweet
+        key={i}
+        firstname={tweet.user.firstname}
+        username={tweet.user.username}
+        tweet={tweet.message}
+      />
+    );
+  });
 
   return (
     <div className={styles.containerHome}>
@@ -50,10 +83,12 @@ function Home() {
         <h1 className={styles.title}>Home</h1>
         <textarea
           className={styles.input}
+          onChange={(e) => setNewTweet(e.target.value)}
           type="text"
           placeholder="What's up?"
           maxLength="280"
           rows="2"
+          value={newTweet}
         ></textarea>
         <div className={styles.nombreBtn}>
           <span>0/280</span>
@@ -62,9 +97,7 @@ function Home() {
           </button>
         </div>
       </div>
-      <div className={styles.msgContainer}>
-        <Tweet />
-      </div>
+      <div className={styles.msgContainer}>{tweets}</div>
       <div className={styles.trend}>
         <h2 className={styles.title}>Trends</h2>
       </div>

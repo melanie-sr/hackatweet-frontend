@@ -22,10 +22,12 @@ function Tweet(props) {
       <div className={styles.row}>
         <div className={styles.namePublication}>
           <img className={styles.logoAvatar} src="avatar-1.jpg" />
-          <h6>{props.username} @JohnLeProf . 5 hours</h6>
+          <h6 className={styles.text}>
+            {props.firstname} @{props.username} . 5 hours
+          </h6>
         </div>
+        <p style={{ color: "white" }}>{props.tweet}</p>
         <div className={styles.logo}>
-          <p>{props.tweet}</p>
           <FontAwesomeIcon
             onClick={() => handleLike()}
             icon={faHeart}

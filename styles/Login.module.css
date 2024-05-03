@@ -1,121 +1,121 @@
 .main {
-    height: 100vh;
-    width: 100vw;
-    background-color: #151D27;
-    display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #151d27;
+  display: flex;
 }
 
-.leftSide{
-    height: 100vh;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url('../public/twitterImage.png');
+.leftSide {
+  height: 100vh;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../public/twitterImage.png");
 }
 
 .rightSide {
-    height: 100vh;
-    width: 60%;
+  height: 100vh;
+  width: 60%;
 }
 
-.loginZone{
-    display: flex;
-    flex-direction: column;
-    border: none;
-    padding: 50px;
-    align-items: left;
-    width: 50%;
+.loginZone {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 50px;
+  align-items: left;
+  width: 50%;
 }
 
-.logo1{
-    height: auto;
-    width: 400px;
+.logo1 {
+  height: auto;
+  width: 400px;
 }
 
-.logo2{
-    height: auto;
-    width: 50px;
+.logo2 {
+  height: auto;
+  width: 50px;
 }
 
 .title1 {
-    color: white;
-    font-size: 70px;
+  color: white;
+  font-size: 70px;
 }
 
-.title2{
-    color: white;
-    font-size: 30px;
+.title2 {
+  color: white;
+  font-size: 30px;
 }
 
-.p{
-    color: white;
-    font-weight: bold;
-}
-  
-.signUpButton{
-    color: white;
-    background-color: #3690ED;
-    border-radius: 40px;
-    height: 40px;
-    width: 200px;
-    border: none;
-    font-weight: bold;
+.p {
+  color: white;
+  font-weight: bold;
 }
 
-.signInButton{
-    color: #3690ED;
-    background-color: #151D27;
-    border-radius: 40px;
-    border: solid 1px #636D79;
-    height: 40px;
-    width: 200px;
-    font-weight: bold;
+.signUpButton {
+  color: white;
+  background-color: #3690ed;
+  border-radius: 40px;
+  height: 40px;
+  width: 200px;
+  border: none;
+  font-weight: bold;
 }
 
-.modal{
-    border-radius: 10px;
-    background-color: #151D27;
-    height: 55%;
-    width: 35%;
-    margin-left: 32.5%;
-    margin-top: 5%;
+.signInButton {
+  color: #3690ed;
+  background-color: #151d27;
+  border-radius: 40px;
+  border: solid 1px #636d79;
+  height: 40px;
+  width: 200px;
+  font-weight: bold;
 }
 
-.faXmark{
-    display: flex;
-    justify-content: right;
-    padding: 20px;
-    color: white;
+.modal {
+  border-radius: 10px;
+  background-color: #151d27;
+  height: 55%;
+  width: 35%;
+  margin-left: 32.5%;
+  margin-top: 5%;
 }
 
-.inputs{
-    display: flex;
-    flex-direction: column;
-  
+.faXmark {
+  display: flex;
+  justify-content: right;
+  padding: 20px;
+  color: white;
 }
 
-.input{
-    background-color: #151D27;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: solid 1px #636D79;
+.inputs {
+  display: flex;
+  flex-direction: column;
 }
 
-.button{
-    background-color: white;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 40px;
-    border: none;
-    font-weight: bold;
+.input {
+  background-color: #151d27;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: solid 1px #636d79;
+  color: white;
 }
 
-.modalsStyle{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
+.button {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 40px;
+  border: none;
+  font-weight: bold;
+}
+
+.modalsStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
 }
