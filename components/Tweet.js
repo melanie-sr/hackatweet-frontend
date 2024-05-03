@@ -14,7 +14,7 @@ function Tweet(props) {
   if (liked) {
     styleHeart = { color: "#e74c3c" };
   } else {
-    styleHeart = { color: "black" };
+    styleHeart = { color: "#000000" };
   }
 
   return (

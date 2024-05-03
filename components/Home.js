@@ -1,8 +1,23 @@
 import styles from "../styles/Home.module.css";
-
+import { useState } from "react";
 import Tweet from "./Tweet";
 
 function Home() {
+  const [newTweet, setNewTweet] = useState("");
+
+  const handleTweet = () => {
+    fetch("http://localhost:3000/tweet/newTweet", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: newTweet }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setNewTweet("");
+      });
+  };
+
   return (
     <div className={styles.containerHome}>
       <div className={styles.personnal}>
@@ -37,7 +52,9 @@ function Home() {
         ></textarea>
         <div className={styles.nombreBtn}>
           <span>0/280</span>
-          <button className={styles.btnTweet}>Tweet</button>
+          <button onClick={() => handleTweet()} className={styles.btnTweet}>
+            Tweet
+          </button>
         </div>
       </div>
       <div className={styles.msgContainer}>
