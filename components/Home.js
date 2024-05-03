@@ -15,12 +15,6 @@ function Home() {
 
   const user = useSelector((state) => state.user.value);
 
-<<<<<<< HEAD
-  const user = useSelector((state) => state.user.value)
-  console.log('user is', user);
-  
-=======
->>>>>>> tweet
   const handleLogout = () => {
     dispatch(logout());
     router.push("/");
@@ -63,7 +57,11 @@ function Home() {
   return (
     <div className={styles.containerHome}>
       <div className={styles.personnal}>
-        <img className={styles.logoTwitter} src="rettiwt.png" alt="Logo twitter"/>
+        <img
+          className={styles.logoTwitter}
+          src="rettiwt.png"
+          alt="Logo twitter"
+        />
         <div className={styles.containerIdentity}>
           <div className={styles.identity}>
             <img
@@ -72,13 +70,8 @@ function Home() {
               alt="avatar"
             />
             <div className={styles.name}>
-<<<<<<< HEAD
               <span className={styles.firstname}>{user.firstname}</span>
-              <span className={styles.username}>@.{user.username}</span> 
-=======
-              <span>{user.firstname}</span>
-              <span>@.{user.username}</span>
->>>>>>> tweet
+              <span className={styles.username}>@.{user.username}</span>
             </div>
           </div>
           <button className={styles.btnLogout} onClick={handleLogout}>
